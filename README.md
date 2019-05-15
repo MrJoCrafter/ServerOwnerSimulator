@@ -1,5 +1,5 @@
 # ServerOwnerSimulator
-A game for TI-84.
+A game for TI-84+CE
 
 ## Changelog
 

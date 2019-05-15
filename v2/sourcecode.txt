@@ -1,0 +1,380 @@
+Lbl NZ
+Menu("SERVER OWNER SIMULATOR","NEW GAME",NA,"CONTINUE",NB,"INFORMATION",NC,"QUIT",ND
+Lbl ND
+ClrHome
+Stop
+Lbl NC
+Disp "CHOOSE OPTIONS FOR YOUR SERVER AND","BUY PLUGINS, DEAL WITH CRISES","AND MAKE MONEY"
+0→X
+While X=0
+getKey→X
+End
+ClrHome
+Goto NZ
+Lbl NA
+0→V
+10→S
+0→P
+1→D
+7→H
+9.59→M
+3→A
+0→W
+2→G
+1→I
+0→O
+1→Z
+0→θ
+Lbl Vθ
+Menu("CHOOSE A VERSION","1.14",VA,"1.13.2",VB,"1.13",VC,"1.12.2",VD,"1.12",VE,"1.11.2",VF,"1.11",VG,"1.10",VH,"MORE",VZ
+Lbl VZ
+Menu("CHOOSE A VERSION","PREVIOUS",Vθ,"1.9",VI,"1.8.9",VJ,"1.8",VK,"1.7.10",VL,"1.7",VM,"1.6.4",VN,"1.6",VO
+Lbl VA
+14→V
+Goto NB
+Lbl VB
+13.2→V
+Goto NB
+Lbl VC
+13→V
+Goto NB
+Lbl VD
+12.2→V
+Goto NB
+Lbl VE
+12→V
+Goto NB
+Lbl VF
+11.2→V
+Goto NB
+Lbl VG
+11→V
+Goto NB
+Lbl VH
+10→V
+Goto NB
+Lbl VI
+9→V
+Goto NB
+Lbl VJ
+8.9→V
+Goto NB
+Lbl VK
+8→V
+Goto NB
+Lbl VL
+7.1→V
+Goto NB
+Lbl VM
+7→V
+Goto NB
+Lbl VN
+6.4→V
+Goto NB
+Lbl VO
+6→V
+Lbl NB
+If θ=1
+Goto NZ
+Disp "PLAYERS/MAX",P,S,"DAY/HOUR",D,H,"MONEY",M,"1: SHOP/MENU"
+Wait 1
+H+1→H
+If H>24
+Then
+0→H
+D+1→D
+End
+Goto PA
+Lbl PB
+Goto PC
+Lbl PD
+Goto PE
+Lbl PF
+int((D/3)(­0.59*abs(H-12)+R+((rand*5)-2.5)))→P
+If rand+0.05*P>1.15-0.01*R
+int((O*rand*.5+M)*100)/100→M
+If P>S
+S→P
+If P<0
+0→P
+ClrHome
+Goto NB
+Lbl PA
+If V=14
+1.7→W
+If V=13.2
+2→W
+If V=13
+2.2→W
+If V=12.2
+2.5→W
+If V=12
+2.1→W
+If V=11.2
+1.9→W
+If V=11
+1.85→W
+If V=10
+1.7→W
+If V=9
+1.5→W
+If V=8.9
+2→W
+If V=8
+1.9→W
+If V=7.1
+2.4→W
+If V=7
+2→W
+If V=6.4
+0.5→W
+If V=6
+0.5→W
+
+Z*A*W→R
+Goto PB
+Lbl PC
+If G>8
+Goto EA
+If I>4 and rand>0.95
+Goto EB
+If I<4 and rand>0.95
+Goto EC
+If rand>0.97
+Goto ED
+If P>S/2 and rand>0.96
+Goto EE
+
+
+
+
+Goto PD
+Lbl PE
+getKey→K
+If K=92
+Then
+Menu("MODIFY SERVER","PLUGINS",SE,"DONATIONS",SC,"HARDWARE UPGRADES",SD,"CHANGE VERSION",SA,"ADMINS",SB,"EXIT",PF,"MAIN MENU",NZ
+Else
+Goto PF
+End
+Lbl SA
+G+1→G
+Goto Vθ
+Lbl SB
+ClrHome
+Disp "ADMIN STATUS","TOTAL ADMINS:",I,"ADMIN MOOD:"
+If G≤1
+Disp "HAPPY
+If G=2 or G=3
+Disp "CONTENT
+If G=4 or G=5
+Disp "INDIFFERENT
+If G=6 or G=7
+Disp "REBELLIOUS
+If G>7
+Disp "RIOTOUS!!
+Disp "1: ADD MORE ADMINS","2: REMOVE ADMINS","3: EXIT
+Lbl Sθ
+0→K
+While K=0
+getKey→K
+End
+If K=92
+Then
+I+int(3*rand)→I
+G-int(2*rand)→G
+Goto NB
+End
+If K=93
+Then
+I-int(2*rand)→I
+If I<0
+0→I
+G+int(2*rand)→G
+Goto NB
+End
+If K=94
+Then
+Goto NB
+Else
+Goto Sθ
+End
+Lbl EA
+ClrHome
+Disp "YOUR ADMINS OVERTHROW YOU","TO MAKE THE SERVER","BETTER.","","GAME OVER"
+1→θ
+Wait 5
+Goto NZ
+Lbl SC
+Menu("DONATIONS","ADD COSMETICS",SX,"ADD PAID RANKS",SY,"SELL STAFF RANKS",SZ
+Lbl SX
+O+.5→O
+Goto PF
+Lbl SY
+O+2→O
+R-.25→R
+Goto PF
+Lbl SZ
+O+5→O
+G+1→G
+Goto PF
+Lbl SD
+Menu("HARDWARE UPGRADES","+10 SLOTS (2.16D)",AA,"+25 SLOTS (5.59D)",AB,"SERVER (15S) (9.99D)",AC,"SERVER (30S) (13.99)",AD
+Lbl AA
+If M>2.16
+Then
+S+10→S
+M-2.16→M
+End
+Goto PF
+Lbl AB
+If M>5.59
+Then
+S+25→S
+M-5.59→M
+End
+Goto PF
+Lbl AC
+If M>9.99
+Then
+Z+1→Z
+S+15→S
+M-9.99→M
+End
+Goto PF
+Lbl AD
+If M>13.99
+Then
+Z+1→Z
+S+30→S
+M-13.99→M
+End
+Goto PF
+Lbl SE
+Menu("PLUGINS","SMALL PLUGIN (0D)",ZA,"SMALL GAMEPLAY (1D)",ZB,"LARGE GAMEPLAY (3D)",ZC,"ANTI-CHEAT (2D)",ZD,"PERMISSIONS (2.5D)",ZE
+Lbl ZA
+A+.05→A
+Goto PF
+Lbl ZB
+If M>.99
+Then
+M-1→M
+A+1→A
+End
+Goto PF
+Lbl ZC
+If M>2.99
+Then
+M-3→M
+A+2.2→A
+End
+Goto PF
+Lbl ZD
+If M>1.99
+Then
+M-2→M
+G-1→G
+End
+Goto PF
+Lbl ZE
+If M>2.49
+Then
+M-2.5→M
+G+1→G
+A+1→A
+End
+Goto PF
+Lbl EB
+ClrHome
+Disp "FOR ASININE REASONS, A","FACTION OF STAFF ATTEMPT","TO OVERTHROW YOU"
+Wait 4
+If rand+0.025*I>0.95
+Then
+Disp "YOU ARE OVERTHROWN.","GAME OVER."
+1→θ
+Wait 4
+Goto NZ
+Else
+Disp "THE COUP FAILS.","TO PREVENT THIS, REMOVE","SOME ADMINS."
+G+1→G
+Wait 4
+Goto PF
+End
+Lbl EC
+ClrHome
+Disp "A HACKER RUINS PART OF THE","SERVER. WHAT IS THEIR","PUNISHMENT?","1: PERMANENT BAN","2: MONTH BAN","3: SLAP ON THE WRIST","(HINT: HIRE ADMINS)"
+Lbl Xθ
+0→K
+While K=0
+getKey→K
+End
+If K=92
+Then
+A-1→A
+Goto PF
+End
+If K=93
+Then
+A-0.5→A
+Goto PF
+End
+If K=94
+Then
+G+2→G
+Goto PF
+Else
+Goto Xθ
+End
+Lbl ED
+If rand>0.5
+Then
+ClrHome
+Disp "YOUR SERVER IS THE","VICTIM OF A DDOS","ATTACK. IT IS OFF FOR","4 HOURS."
+G+1→G
+H+4→H
+Wait 5
+Goto NB
+Else
+ClrHome
+Disp "YOUR SERVER HAS AN","OUTAGE.","IT IS OFF FOR","5 HOURS."
+A-1→A
+H+5→H
+Wait 5
+Goto NB
+End
+Lbl EE
+ClrHome
+If rand>.75
+Then
+Disp "A PLAYER MAKES BIGOTED","COMMENTS. IT IS NOT","TECHNICALLY AGAINST","THE RULES, EVERYONE WANTS","THEM BANNED. WHAT DO?"
+Else
+If rand>.66
+Then
+Disp "LOTS OF PLAYERS ACCUSE","A CERTAIN PLAYER OF","HACKING, BUT THERE IS NO","PROOF. WHAT DO YOU DO?"
+Else
+If rand>.5
+Then
+Disp "A PLAYER GRIEFS MANY","PLAYERS. THIS IS ALLOWED,","BUT MANY WANT THEM BANNED","WHAT WILL YOU DO?"
+Else
+Disp "A PLAYER EXPLOITS A","GLITCH TO GET RICH.","THIS IS NOT AGAINST THE","RULES. WHAT DO?" 
+End
+End
+End
+Disp "1: BAN THEM","2: DO NOT"
+Lbl Vθ
+0→K
+While 0=K
+getKey→K
+End
+If K=92
+Then
+G+1→G
+Else
+If K=93
+Then
+A-1→A
+Else
+Goto Vθ
+End
+End
+Goto PF

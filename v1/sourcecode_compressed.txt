@@ -5,25 +5,13 @@ ClrHome
 Stop
 Lbl NC
 Disp "CHOOSE OPTIONS FOR YOUR SERVER AND","BUY PLUGINS, DEAL WITH CRISES","AND MAKE MONEY"
-0→X
-While X=0
+Repeat X
 getKey→X
 End
 ClrHome
 Goto NZ
 Lbl NA
-0→V
-10→S
-0→P
-1→D
-7→H
-9.59→M
-3→A
-0→W
-2→G
-1→I
-0→O
-1→Z
+0→V:10→S:0→P:1→D:7→H:9.59→M:3→A:0→W:2→G:1→I:0→O:1→Z
 Lbl Vθ
 Menu("CHOOSE A VERSION","1.14",VA,"1.13.2",VB,"1.13",VC,"1.12.2",VD,"1.12",VE,"1.11.2",VF,"1.11",VG,"1.10",VH,"MORE",VZ
 Lbl VZ
@@ -76,10 +64,8 @@ Lbl NB
 Disp "PLAYERS/MAX",P,S,"DAY/HOUR",D,H,"MONEY",M,"1: SHOP/MENU"
 Wait 1
 H+1→H
-If H=24
-Then
-0→H
-D+1→D
+If H=24:Then
+0→H:D+1→D
 End
 Goto PA
 Lbl PB
@@ -90,61 +76,39 @@ Lbl PF
 int(­0.59*abs(H-12)+R+D/2+int(rand*3)-2)→P
 If rand>.95
 int((O*rand*.5+M)*100)/100→M
-If P>S
-S→P
-If P<0
-0→P
+If P>S:S→P
+If P<0:0→P
 ClrHome
 Goto NB
 Lbl PA
-If V=14
-1.7→W
-If V=13.2
-2→W
-If V=13
-2.2→W
-If V=12.2
-2.5→W
-If V=12
-2.1→W
-If V=11.2
-1.9→W
-If V=11
-1.85→W
-If V=10
-1.7→W
-If V=9
-1.5→W
-If V=8.9
-2→W
-If V=8
-1.9→W
-If V=7.1
-2.4→W
-If V=7
-2→W
-If V=6.4
-0.5→W
-If V=6
-0.5→W
-
-Z*A*W→R
+If V=14:1.7→W
+If V=13.2:2→W
+If V=13:2.2→W
+If V=12.2:2.5→W
+If V=12:2.1→W
+If V=11.2:1.9→W
+If V=11:1.85→W
+If V=10:1.7→W
+If V=9:1.5→W
+If V=8.9:2→W
+If V=8:1.9→W
+If V=7.1:2.4→W
+If V=7:2→W
+If V=6.4:0.5→W
+If V=6:0.5→W
+ZAW→R
 Goto PB
 Lbl PC
-If G>8
-Goto EA
-If I>4 and rand>0.95
-Goto EB
-If I<4 and rand>0.95
-Goto EC
+If G>8:Goto EA
+If I>4 and rand>0.95:Goto EB
+If I<4 and rand>0.95:Goto EC
 
 
 
 Goto PD
 Lbl PE
 getKey→K
-If K=92
-Then
+If K=92:Then
 Menu("MODIFY SERVER","PLUGINS",SE,"DONATIONS",SC,"HARDWARE UPGRADES",SD,"CHANGE VERSION",SA,"ADMINS",SB,"STATISTICS",PE,"EXIT",PF,"MAIN MENU",NZ
 Else
 Goto PF
@@ -155,42 +119,29 @@ Goto Vθ
 Lbl SB
 ClrHome
 Disp "ADMIN STATUS","TOTAL ADMINS:",I,"ADMIN MOOD:"
-If G≤1
-Disp "HAPPY
-If G=2 or G=3
-Disp "CONTENT
-If G=4 or G=5
-Disp "INDIFFERENT
-If G=6 or G=7
-Disp "REBELLIOUS
-If G>7
-Disp "RIOTOUS!!
+If G≤1:Disp "HAPPY"
+If G=2 or G=3:Disp "CONTENT"
+If G=4 or G=5:Disp "INDIFFERENT"
+If G=6 or G=7:Disp "REBELLIOUS"
+If G>7:Disp "RIOTOUS!!"
 Disp "1: ADD MORE ADMINS","2: REMOVE ADMINS","3: EXIT
 Lbl Sθ
-0→K
-While K=0
+Repeat K
 getKey→K
 End
-If K=92
-Then
+If K=92:Then
 I+int(3*rand)→I
 G-int(2*rand)→G
 Goto NB
 End
-If K=93
-Then
+If K=93:Then
 I-int(2*rand)→I
-If I<0
-0→I
+If I<0:0→I
 G+int(2*rand)→G
 Goto NB
 End
-If K=94
-Then
-Goto NB
-Else
+If K=94:Goto NB
 Goto Sθ
-End
 Lbl EA
 ClrHome
 Disp "YOUR ADMINS OVERTHROW YOU","TO MAKE THE SERVER","BETTER.","","GAME OVER"
@@ -202,43 +153,31 @@ Lbl SX
 O+.5→O
 Goto PF
 Lbl SY
-O+2→O
-R-.25→R
+O+2→O:R-.25→R
 Goto PF
 Lbl SZ
-O+5→O
-G+1→G
+O+5→O:G+1→G
 Goto PF
 Lbl SD
 Menu("HARDWARE UPGRADES","+10 SLOTS (2.16D)",AA,"+25 SLOTS (5.59D)",AB,"SERVER (15S) (9.99D)",AC,"SERVER (30S) (13.99)",AD
 Lbl AA
-If M>2.16
-Then
-S+10→S
-M-2.16→M
+If M>2.16:Then
+S+10→S:M-2.16→M
 End
 Goto PF
 Lbl AB
-If M>5.59
-Then
-S+25→S
-M-5.59→M
+If M>5.59:Then
+S+25→S:M-5.59→M
 End
 Goto PF
 Lbl AC
-If M>9.99
-Then
-Z+1→Z
-S+15→S
-M-9.99→M
+If M>9.99:Then
+Z+1→Z:S+15→S:M-9.99→M
 End
 Goto PF
 Lbl AD
-If M>13.99
-Then
-Z+1→Z
-S+30→S
-M-13.99→M
+If M>13.99:Then
+Z+1→Z:S+30→S:M-13.99→M
 End
 Goto PF
 Lbl SE
@@ -247,40 +186,30 @@ Lbl ZA
 A+.05→A
 Goto PF
 Lbl ZB
-If M>.99
-Then
-M-1→M
-A+1→A
+If M>.99:Then
+M-1→M:A+1→A
 End
 Goto PF
 Lbl ZC
-If M>2.99
-Then
-M-3→M
-A+2.2→A
+If M>2.99:Then
+M-3→M:A+2.2→A
 End
 Goto PF
 Lbl ZD
-If M>1.99
-Then
-M-2→M
-G-1→G
+If M>1.99:Then
+M-2→M:G-1→G
 End
 Goto PF
 Lbl ZE
-If M>2.49
-Then
-M-2.5→M
-G+1→G
-A+1→A
+If M>2.49:Then
+M-2.5→M:G+1→G:A+1→A
 End
 Goto PF
 Lbl EB
 ClrHome
 Disp "FOR ASININE REASONS, A","FACTION OF STAFF ATTEMPT","TO OVERTHROW YOU"
 Wait 4
-If rand+0.025*I>0.95
-Then
+If rand+0.025*I>0.95:Then
 Disp "YOU ARE OVERTHROWN.","GAME OVER."
 1→θ
 Wait 4
@@ -295,21 +224,12 @@ Lbl EC
 ClrHome
 Disp "A HACKER RUINS PART OF THE","SERVER. WHAT IS THEIR","PUNISHMENT?","1: PERMANENT BAN","2: MONTH BAN","3: SLAP ON THE WRIST"
 Lbl Xθ
-0→K
-While K=0
+Repeat K
 getKey→K
 End
-If K=92
-Goto PF
-If K=93
-Then
-A-0.5→A
-Goto PF
-End
-If K=94
-Then
-G+2→G
-Goto PF
-Else
+If K=92:Goto PF
+If K=93:A-0.5→A
+If K=93:Goto PF
+If K=94:G+2→G
+If K=94:Goto PF
 Goto Xθ
-End
